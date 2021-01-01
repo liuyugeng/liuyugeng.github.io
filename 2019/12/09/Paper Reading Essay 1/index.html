@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Yugeng Liu">
+
+
+
+
+
+<title>Paper Reading Essay 1 | 叫我胖更好了</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/"><img src="/image/yinzhang.png" width="30"/></a> </div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="/publications">Publications</a>
+                
+                    <a class="menu-item" href="/misc">Misc.</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">叫我胖更好了</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="/publications">Publications</a>
+                
+                    <a class="menu-item" href="/misc">Misc.</a>
+                
+            </div>
+        </div>
+    </nav>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130596599-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-130596599-2');
+    </script>
+
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Paper Reading Essay 1</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Yugeng Liu</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">December 9, 2019&nbsp;&nbsp;18:21:44</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/category/Papers/">Papers</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>Recently, I read one paper named <a target="_blank" rel="noopener" href="https://www.usenix.org/system/files/sec19-wu-shujiang.pdf">Rendered Private: Making GLSL Execution Uniform to Prevent WebGL-based Browser Fingerprinting</a>, which belongs to Shujiang Wu et al. from Johns Hopkins University and is published on <a target="_blank" rel="noopener" href="https://www.usenix.org/conference/usenixsecurity19">USENIX Security 19</a>.</p>
+<p>This paper introduces a technique to allow all of the websites to have the same WebGL fingerprinting. What makes the fingerprinting different is the floating operation. Floating operations are different among different computers because the hardwares such as CPU, GPU have the error when produced. When the WebGL renders the images of a website, the location of the same pixel in the same image will be different in different computers and the color of it will be different as well because they all controlled by the floating operations. This figure demonstrates the overflow when an image is rendered by WebGL. All of the three parts have the floating operations which make the results are different among computers.</p>
+<p><img src="/image/essay_1/1.png" alt="Graphics Pipeline"></p>
+<p>So, they choose a method to make it the same in different computers which makes the rotation in Vertex Shader part transfer to the JavaScript part and puts the operation in Shape Assembly and Rasterization part to Fragment Shader part. After that, the calculation will be uniform among computers.</p>
+<p>However, though this operation looks like making a uniform, whether or not the result is accurate is a problem. For example, when we play a website game needing to connect the server and interact with others on a map, if we send back the location of us and judge the interaction in the server, this operation will make the conflict between the client and server. Just like we want to walk straight but maybe a slash in real. Because there won&#39;t be any rendering in the server, but we need to render the interface in the client part. That is to say, we can&#39;t use this method on this kind of website.</p>
+<p>On another hand, floating operations can also cause some problems in some machine learning fields. Shaofeng Li et al. have a paper named <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1909.02742.pdf">Invisible Backdoor Attacks Against Deep Neural Networks</a>. They create a kind of backdoor attack by adding some invisible pixels to the images. This picture illustrates that people cannot distinguish the difference between the original one and the poisoned one.<br><img src="/image/essay_1/2.png" alt="(a) Original image, (b) Poisoned image with L2-norm as 2, and (c) Poisoned image with L0-norm as 2."></p>
+<p>Based on Shujiang&#39;s conclusion, nevertheless, this kind of backdoor will be different in different computers. So, when we train the backdoor with some images in computer A and we test or use this model on computer B, the pixels of these images&#39; backdoor parts in computer B will be different from the training ones. </p>
+<p>Also, as we know, many attacks are used adding noise which is too subtle to distinguish such as voice or image. I am not sure whether or not the model can recognize this successfully. Need more test experiments to proof.</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Yugeng Liu</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://liu.ai/2019/12/09/Paper%20Reading%20Essay%201/">https://liu.ai/2019/12/09/Paper%20Reading%20Essay%201/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright &copy; <script> var date, year; date = new Date(); year = date.getFullYear(); document.write(year); </script> <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Web-Security/"><i class="iconfont icon-tags"></i> Web Security</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/12/19/Paper%20Reading%20Essay%202/">Paper Reading Essay 2</a>
+            
+            
+            <a class="next" rel="next" href="/2019/12/01/Authorization%20is%20Key/">Authorization is Key</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>Copyright &copy; 
+        <script>
+	        var date, year;
+	        date = new Date();
+	        year = date.getFullYear();
+	        document.write(year);
+	    </script>
+        Yugeng Liu | theme by <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+
+
+        <!--script type="text/javascript" color="220,220,220" opacity='0.8' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script-->
+    </div>
+</body>
+</html>
