@@ -24,6 +24,6 @@ nav: true
 
 * Australia: Brisbane, Gold Coast, Keynes, Melbourne, Sydney.
 * China: Beijing, Dalian, Guangzhou, Hohhot, Hong Kong, Shanghai, Shenyang, Suzhou.
-* Germany: Frankfurt, Saarbruecken.
+* Germany: Frankfurt, Saarbrücken.
 * Singapore: Singapore City.
 * United States: Baltimore, Dallas, Los Angeles, New York, San Diego, San Francisco, Washington D.C.
