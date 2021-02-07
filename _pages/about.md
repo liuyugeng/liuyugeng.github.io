@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-description: Ph.D. Student @ CISPA
+description: Ph.D. Student, CISPA<br>yugeng.liu@cispa.de
 
 profile:
   align: # right
