@@ -6,14 +6,14 @@ title: 叫我胖更好了 # the website title (if blank, full name will be used 
 first_name: Yugeng
 middle_name:
 last_name: Liu
-email: yugeng.liu@cispa.de
+email:
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Ph.D. Student, CISPA
 footer_text: >
 
 url:  # the base hostname & protocol for your site
 baseurl: # the subpath of your site, e.g. /blog/
-last_updated: false # set to true if you want to display last updated in the footer
+last_updated: true # set to true if you want to display last updated in the footer
 impressum_path:  # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 
 # -----------------------------------------------------------------------------
@@ -52,6 +52,8 @@ blogger_url: # your blogger URL
 work_url: # work page URL
 keybase_username: # your keybase user name
 wikidata_id: # your wikidata id
+zhihu_id: yugengliu
+weibo_id:
 
 contact_note: >
 
