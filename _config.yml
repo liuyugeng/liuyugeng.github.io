@@ -135,9 +135,9 @@ plugins:
 scholar:
 
   last_name: Liu
-  first_name: [Yugeng, Y.]
+  first_name: Yugeng
 
-  style: apa
+  style: https://raw.githubusercontent.com/citation-style-language/styles/master/chicago-author-date.csl
   locale: en
 
   source: /_bibliography/
