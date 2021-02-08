@@ -2,11 +2,11 @@
 layout: about
 title: about
 permalink: /
-description: Ph.D. Student, CISPA<br>yugeng.liu@cispa.de
+description: Ph.D. Student @ CISPA<br>Stuhlsatzenhausweg 5<br>66123, Saarbrücken, Germany
 
 profile:
   align: # right
-  image: # prof_pic.jpg
+  image: # me.jpg
   address: >
 
 news: false  # includes a list of news items
