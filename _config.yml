@@ -2,7 +2,7 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: 叫我胖更好了 # the website title (if blank, full name will be used instead)
+title: Yugeng Liu # the website title (if blank, full name will be used instead)
 first_name: Yugeng
 middle_name:
 last_name: Liu
@@ -10,7 +10,7 @@ email: yugeng.liu@cispa.de
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Ph.D. Student @ CISPA
 footer_text: >
-  Theme by <a href="https://github.com/alshedivat/al-folio" target="_blank" style="color:black">al-folio</a>.
+  Based on <a href="https://github.com/alshedivat/al-folio" target="_blank" style="color:black">al-folio</a> template.
 
 url:  # the base hostname & protocol for your site
 baseurl: # the subpath of your site, e.g. /blog/
