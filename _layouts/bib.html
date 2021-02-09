@@ -53,11 +53,11 @@
               {% else %}
                 {% for coauthor in site.data.coauthors %}
                   {% if author.first == coauthor.first and author.last == coauthor.last %}
-                    <a href="{{coauthor.url}}" target="_blank">{{author.first}} {{author.last}}</a>,
+                    <a href="{{coauthor.url}}" target="_blank">{{author.first}} {{author.last}}</a>
                     {% break %}
                   {% else %}
                     {% if forloop.last %}
-                      {{author.first}} {{author.last}},
+                      {{author.first}} {{author.last}}
                     {% endif %}
                   {% endif %}
                 {% endfor %}
