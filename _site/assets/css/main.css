@@ -9,7 +9,7 @@ html[data-theme='dark'] .fa-sun { padding-left: 10px; padding-top: 12px; display
 html[data-theme='dark'] .fa-moon { display: none; }
 
 /****************************************************************************** Content *****************************************************************************/
-body { font-family: "Lato", sans-serif; padding-bottom: 70px; color: var(--global-text-color); background-color: var(--global-bg-color); }
+body { font-family: "Roboto", sans-serif; padding-bottom: 70px; color: var(--global-text-color); background-color: var(--global-bg-color); }
 
 body.fixed-top-nav { padding-top: 56px; }
 
