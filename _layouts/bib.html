@@ -2,7 +2,7 @@
 ---
 
 <div class="row">
-  <div class="col-sm-2 abbr">
+  <div class="col-md-auto abbr">
   {% if entry.abbr %}
     {% if entry.conferenceurl %}
     <abbr class="badge" style="width: 4.5rem;"><a href="{{entry.conferenceurl}}" target="_blank">{{entry.abbr}}</a></abbr>
@@ -12,15 +12,15 @@
   {% endif %}
   </div>
 
-  <div id="{{entry.key}}" class="col-sm-8">
-    {% if entry.type == "thesis" %}
+  <div id="{{entry.key}}" class="col-sm-10">
+    <!--{% if entry.type == "thesis" %}
       {{reference}}
-    {% else %}
-      <div class="title" style="color:#3B6CA9">
+    {% else %}-->
+      <div class="title" style="font-size: 1.03em;">
         {% if entry.url %}
-          <a target="_blank" href="{{entry.url}}" style="color:#3B6CA9">{{entry.title}}</a>
+          <a target="_blank" href="{{entry.url}}" style="color:#0F54BC"><b>{{entry.title}}</b></a>
         {% else %}
-          {{entry.title}}
+          <b>{{entry.title}}</b>
         {% endif %}
       </div>
       <div class="author">
@@ -65,45 +65,51 @@
             {% endunless %}
           {% endif %}
         {% endfor %}
+        {% if entry.additional %}
+            ({{entry.additional}})
+        {% endif %}
       </div>
 
       <div class="periodical">
       {% if entry.type == "article" %}
         <em>{{entry.journal}}</em>,
       {% elsif entry.type == "inproceedings" %}
-        <em>In {{entry.booktitle}}</em>,
+        <em>{{entry.booktitle}}</em>,
+      {% endif %}
+      {% if entry.location %}
+        {{entry.location}},
+      {% endif %}
+      {% if entry.month %}
+        {{entry.month}}.
       {% endif %}
       {% if entry.year %}
-        {{entry.year}}
-      {% endif %}
-      {% if entry.additional %}
-        ({{entry.additional}})
+        {{entry.year}}.
       {% endif %}
       </div>
-    {% endif %}
+    <!--{% endif %}-->
 
     <div class="links">
     {% if entry.abstract %}
-      <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
+      <a class="abstract"><i class="fa fa-book" style="font-size:1.25em;color:indianred;" title="Abstract"></i></a>
     {% endif %}
     {% if entry.arxiv %}
-      <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button" target="_blank">arXiv</a>
+      &nbsp;&nbsp;<a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button" target="_blank">arXiv</a>
     {% endif %}
     {% if entry.html %}
-      <a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button" target="_blank">HTML</a>
+      &nbsp;&nbsp;<a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button" target="_blank">HTML</a>
     {% endif %}
     {% if entry.pdf %}
       {% if entry.pdf contains '://' %}
-      <a href="{{ entry.pdf }}" target="_blank" ><i class="fa fa-file-pdf" style="font-size:1.3em;"></i></a>
+      &nbsp;&nbsp;<a href="{{ entry.pdf }}" target="_blank"><i class="fa fa-file-pdf" style="font-size:1.3em;" title="Paper"></i></a>
       {% else %}
-      <a href="{{ entry.pdf | prepend: '/assets/files/' | relative_url }}" target="_blank"><i class="fa fa-file-pdf" style="font-size:1.3em;"></i></a>
+      &nbsp;&nbsp;<a href="{{ entry.pdf | prepend: '/assets/files/' | relative_url }}" target="_blank"><i class="fa fa-file-pdf" style="font-size:1.3em;" title="Paper"></i></a>
       {% endif %}
     {% endif %}
     {% if entry.ppt %}
-      &nbsp;&nbsp;<a href="{{ entry.ppt | prepend: '/assets/files/' | relative_url }}" target="_blank"><i class="fa fa-file-powerpoint" style="font-size:1.3em;"></i></a>
+      &nbsp;&nbsp;<a href="{{ entry.ppt | prepend: '/assets/files/' | relative_url }}" target="_blank"><i class="fa fa-file-powerpoint" style="font-size:1.3em;" title="Slides"></i></a>
     {% endif %}
     {% if entry.video %}
-      &nbsp;&nbsp;<a href="{{ entry.video }}" target="_blank"><i class="fab fa-youtube" style="font-size:1.3em;"></i></a>
+      &nbsp;&nbsp;<a href="{{ entry.video }}" target="_blank"><i class="fab fa-youtube" style="font-size:1.3em;" title="Video"></i></a>
     {% endif %}
     {% if entry.supp %}
       {% if entry.supp contains '://' %}
@@ -113,23 +119,20 @@
       {% endif %}
     {% endif %}
     {% if entry.blog %}
-      <a href="{{ entry.blog }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Blog</a>
+      <a href="{{ entry.blog }}" target="_blank"><i class="fab fa-youtube" style="font-size:1.3em;"></i></a>
     {% endif %}
     {% if entry.code %}
-      <a href="{{ entry.code }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Code</a>
+      {% if entry.code contains '://' %}
+        &nbsp;&nbsp;<a href="{{ entry.code }}" target="_blank"><i class="fa fa-code" style="font-size:1.3em;"></i></a>
+      {% else %}
+        &nbsp;&nbsp;<a href="{{ entry.code | prepend: '/assets/files/' | relative_url}}" target="_blank"><i class="fa fa-code-branch" style="font-size:1.3em;" title="{{entry.use}}"></i></a>
+      {% endif %}
     {% endif %}
     {% if entry.poster %}
       {% if entry.poster contains '://' %}
       <a href="{{ entry.poster }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Poster</a>
       {% else %}
       <a href="{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Poster</a>
-      {% endif %}
-    {% endif %}
-    {% if entry.slides %}
-      {% if entry.slides contains '://' %}
-      <a href="{{ entry.slides }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Slides</a>
-      {% else %}
-      <a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Slides</a>
       {% endif %}
     {% endif %}
     {% if entry.website %}

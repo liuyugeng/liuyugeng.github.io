@@ -10,7 +10,6 @@ email: yugeng.liu@cispa.de
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Ph.D. Student @ CISPA
 footer_text: >
-  Based on <a href="https://github.com/alshedivat/al-folio" target="_blank" style="color:black">al-folio</a> template.
 
 url:  # the base hostname & protocol for your site
 baseurl: # the subpath of your site, e.g. /blog/
@@ -163,7 +162,7 @@ enable_panelbear_analytics: true
 enable_mansory:             true
 enable_math:                true
 enable_tooltips:            false
-enable_darkmode:            true
+enable_darkmode:            false
 show_social_icons:          true
 
 # -----------------------------------------------------------------------------

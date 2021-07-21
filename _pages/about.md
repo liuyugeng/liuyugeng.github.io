@@ -2,14 +2,14 @@
 layout: about
 title: about
 permalink: /
-description: <b>Ph.D. Student</b> <i class="fa fa-at" style="color:grey"></i> <b>CISPA</b><br>Stuhlsatzenhausweg 5<br>66123, Saarbrücken, Germany
+description: <b>Ph.D. Student</b> <i class="fa fa-at" style="color:#959598;font-size:0.85em;"></i> <b>CISPA</b><br>Stuhlsatzenhausweg 5<br>66123, Saarbrücken, Germany
 
 profile:
   align: # right
   image: # me.jpg
   address: >
 
-news: false  # includes a list of news items
+news: true  # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false  # includes social icons at the bottom of the page
 ---
