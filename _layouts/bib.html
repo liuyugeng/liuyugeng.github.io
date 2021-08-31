@@ -123,7 +123,7 @@
     {% endif %}
     {% if entry.code %}
       {% if entry.code contains '://' %}
-        &nbsp;&nbsp;<a href="{{ entry.code }}" target="_blank"><i class="fa fa-code" style="font-size:1.3em;"></i></a>
+        &nbsp;&nbsp;<a href="{{ entry.code }}" target="_blank"><i class="fa fa-code" style="font-size:1.1em;"></i></a>
       {% else %}
         &nbsp;&nbsp;<a href="{{ entry.code | prepend: '/assets/files/' | relative_url}}" target="_blank"><i class="fa fa-code-branch" style="font-size:1.3em;" title="{{entry.use}}"></i></a>
       {% endif %}
