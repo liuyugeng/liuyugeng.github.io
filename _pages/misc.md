@@ -15,9 +15,9 @@ nav: true
 
 <p style="text-align:justify;">The paper most surprised me is <a target="_blank" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7958578">IoT Goes Nuclear: Creating a ZigBee Chain Reaction</a> by Eyal Ronen, Colin O&#39;Flynn, Adi Shamir and Achi-Or Weingarten.</p>
 
-<h5><b><font color="#2d96bd">|</font> Basketball</b></h5>
+<h5><b><font color="#2d96bd">|</font> Sports</b></h5>
 
-<p style="text-align:justify;">I am a passionate basketball fan. <a target="_blank" rel="noopener" href="http://www.lnfeibao.com/">Liaoning Flying Leopards</a> (<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Liaoning_Flying_Leopards">wikipidia link</a>), my hometown team in CBA, is my favorite basketball team. I am a Guard-forward (SG/SF) in the court, mostly a Guard. I was an assistant coach of my school SEIEE basketball team.</p>
+<p style="text-align:justify;">I am a passionate basketball fan. <a target="_blank" rel="noopener" href="http://www.lnfeibao.com/">Liaoning Flying Leopards</a> (<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Liaoning_Flying_Leopards">wikipidia link</a>), my hometown team in CBA, is my favorite basketball team. I am a Guard-forward (SG/SF) in the court, mostly a Guard. I was an assistant coach of my school SEIEE basketball team.<br> I also like to watch soccer games. <a target="_blank" rel="noopener" href="https://www.manutd.com">Manchester United F.C.</a> is my favorite team.</p>
 
 <h5><b><font color="#2d96bd">|</font> Music</b></h5>
 
